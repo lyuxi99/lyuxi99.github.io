@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <style>
+        p {
+            text-indent:2em
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div style="margin-top: 30px">
+        <el-card>
+            <div slot="header" class="clearfix">
+                <span>
+                    <center>来自 MySdu 开发者的一封信</center>
+                </span>
+            </div>
+            <div>
+                <p>
+                亲爱的学弟学妹们，你们好啊，我是 MySDU 的开发者， 17 级的一名计科学生。在此先说句对不起！很抱歉一直没有维护这个项目，现在貌似只有地图功能可以用。虽然现在早已毕业了，这个项目也搁置很久了，但是意外的发现这个 APP 貌似还有一些同学在使用，很是感动，遂产生继续维护这个 APP 的想法，打算修复课程表和绩点查询，并听听同学们的建议增加一些新功能。
+                </p>
+                <p>
+                这个是我 4 年前随便写的一个项目，写的代码又乱又丑。这次，我会重构一下代码，更新一下界面 UI，新版的项目代码将会开源，也欢迎同学们增加新功能。
+                </p>
+                <p>
+                最后，欢迎大家加入 MySDU 的 QQ 反馈群！可以直接在群里提出意见和建议，更方便地和开发者互动！
+                </p>
+                <center>
+                    <el-button type="primary" round @click="jump">点我加 Q 群</el-button>
+                </center>
+                <p>
+                    如果上面链接打不开，可以复制这个群号加群：
+                </p>
+                <center>
+                    <el-tag>296843720</el-tag>
+                </center>
+                <p>
+                    感谢大家！
+                </p>
+                <div style="text-align:right">
+                    MySdu 开发者
+                </div>
+                <div style="text-align:right">
+                    2022年11月6日
+                </div>
+
+            </div>
+        </el-card>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+      }
+    },
+    methods: {
+      jump(){
+        window.open('https://jq.qq.com/?_wv=1027&k=5g3NURpH', '_blank')
+      }
+    },
+    components: {},
+  })
+</script>
+
+</body>
+</html>
