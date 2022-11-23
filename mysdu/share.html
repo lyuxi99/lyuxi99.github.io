@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>MySdu - 你的山大小助手</title>
+    <link rel="stylesheet" href="https://unpkg.com/vant@2.12/lib/index.css"/>
+    <script src="https://unpkg.com/vue@2.6/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/vant@2.12/lib/vant.min.js"></script>
+    <style>
+        p {
+            text-indent: 2em
+        }
+
+        .m-button {
+            outline: none;
+            border: none;
+            display: inline-block;
+            vertical-align: top;
+            height: 42px;
+            padding: 0 23px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #F9F9F9;
+            border-radius: 23px;
+            background-color: #06A7FF;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            display: block;
+            width: 100%;
+            height: 50px;
+            margin: 0 auto;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body style="background-color: #f7f8fa">
+<div id="app" style="padding: 10px">
+    <div>
+        <img width="100%" src="./imgs/banner.png"/>
+        <!--        <van-divider-->
+        <!--                :style="{ color: '#1989fa', borderColor: '#1989fa', padding: '0 16px' }"-->
+        <!--        />-->
+        <div>
+            <center>
+                <img width="80%" style="max-width: 400px" src="./imgs/qr_share.png"/>
+                <div style="margin-bottom: 15px"><b>↑ 扫码下载</b></div>
+
+                <div v-if="ua_qq || ua_mm" style="margin-top: 20px; color: red">
+                    <button v-if="!has_click" style="text-decoration: none" @click="has_click=true"
+                            class="m-button">【立即下载】
+                    </button>
+                    <div v-else>
+                        <span v-if="ua_qq">您当前是在手机QQ，</span><span v-if="ua_mm">您当前是在微信，</span>为了正常下载，<br>请点击右上角“从浏览器中打开”<br><br><br>
+                        如果确信当前在浏览器，请点击<a :href="apk_url" rel="nofollow">这里</a>下载。
+                    </div>
+                </div>
+                <div v-else style="margin-top: 20px">
+                    <a :href="apk_url" rel="nofollow" style="text-decoration: none">
+                        <button class="m-button">点这里立即下载</button>
+                    </a>
+                </div>
+            </center>
+
+            <van-cell-group title="功能介绍（后面有应用截图哦）">
+                <van-cell title="课程表" label="随时随地看课表，从教务自动导入，点击课程还可添加备注"></van-cell>
+                <van-cell title="待办事项" label="方便记录作业，不再忘记"></van-cell>
+                <van-cell title="校区地图" label="精确定位，高清地图，校园内不再迷路"></van-cell>
+                <van-cell title="身份证二维码" label="核酸检测时方便展示，不再需要打开小程序"></van-cell>
+                <van-cell title="查成绩" label="一键查询成绩，心痛只在瞬间"></van-cell>
+                <van-cell title="出入校园信息填报" label="一键打开出校申请"></van-cell>
+                <van-cell title="图书馆预约" label="一键打开座位预约"></van-cell>
+                <van-cell title="考试安排" label="<待开发>"></van-cell>
+            </van-cell-group>
+
+            <van-cell-group title="应用截图">
+                <van-swipe :autoplay="3000">
+                    <van-swipe-item v-for="(image, index) in images" :key="index">
+                        <img v-lazy="image"/>
+                    </van-swipe-item>
+                </van-swipe>
+            </van-cell-group>
+
+            <van-cell-group title="来自开发者的一封信">
+                <div style="padding: 5px 20px">
+                    <p style="text-indent: 0">亲爱的学弟学妹：</p>
+                    <p>
+                        你好啊，我是 MySdu 的开发者，17 级的一名计科学生。虽然现在早已毕业，这个项目也搁置很久，但是意外的发现这个
+                        APP 还有同学在使用，很是感动，遂决定继续维护。
+                    </p>
+                    <p>
+                        这个是我 4 年前随便写的一个项目。这次重构了大部分代码，新项目代码会<a
+                            href="https://github.com/lyuxi99/MySdu"
+                            style="text-decoration: none; color: #06A7FF">在这里开源</a>。
+                    </p>
+                    <p>
+                        此次维护对 MySdu 全新改版，优化了界面 UI，增添了很多新功能。欢迎下载体验！
+                    </p>
+                    <p>
+                        谢谢你的支持！
+                    </p>
+                    <div style="text-align:right">
+                        MySdu 开发者
+                    </div>
+                    <div style="text-align:right">
+                        2022年11月24日
+                    </div>
+                </div>
+            </van-cell-group>
+            <div style="padding-bottom: 50px"></div>
+            <!--            <el-image src="./imgs/img_syllabus.jpg"></el-image>-->
+            <!--            <el-image src="./imgs/img_todo.jpg"></el-image>-->
+            <!--            <el-image src="./imgs/img_misc.jpg"></el-image>-->
+            <!--            <el-image src="./imgs/img_apply_go_out.jpg"></el-image>-->
+            <!--            <el-image src="./imgs/img_qr_code.jpg"></el-image>-->
+            <!--            <el-image src="./imgs/img_grade.png"></el-image>-->
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        ua: window.navigator.userAgent,
+        ua_qq: window.navigator.userAgent.toLowerCase().indexOf('mqqbrowser') >= 0
+          && window.navigator.userAgent.toLowerCase().indexOf('qq/') >= 0,
+        ua_mm: window.navigator.userAgent.toLowerCase().indexOf('micromessenger') >= 0,
+        has_click: false,
+        images: [
+          'https://img01.yzcdn.cn/vant/apple-1.jpg',
+          'https://img01.yzcdn.cn/vant/apple-2.jpg',
+        ],
+        apk_url: "https://mysdu-qd-public.oss-cn-qingdao.aliyuncs.com/apk/MySdu-latest.apk",
+
+      }
+    },
+    methods: {
+      jump() {
+        window.open('https://jq.qq.com/?_wv=1027&k=5g3NURpH', '_blank')
+      }
+    },
+    components: {},
+  });
+  Vue.use(vant.Lazyload);
+
+</script>
+
+</body>
+</html>
