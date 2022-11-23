@@ -54,7 +54,7 @@
                     </button>
                     <div v-else>
                         <span v-if="ua_qq">您当前是在手机QQ，</span><span v-if="ua_mm">您当前是在微信，</span>为了正常下载，<br>请点击右上角“从浏览器中打开”<br><br><br>
-                        如果确信当前在浏览器，请点击<a :href="apk_url" rel="nofollow">这里</a>下载。
+                        （如果确信当前在浏览器，请点击<a :href="apk_url" rel="nofollow">这里</a>下载。）
                     </div>
                 </div>
                 <div v-else style="margin-top: 20px">
@@ -65,7 +65,7 @@
             </center>
 
             <van-cell-group title="功能介绍（后面有应用截图哦）">
-                <van-cell title="课程表" label="随时随地看课表，从教务自动导入，点击课程还可添加备注"></van-cell>
+                <van-cell title="课程表" label="随时随地看课表，点击课程还可添加备注"></van-cell>
                 <van-cell title="待办事项" label="方便记录作业，不再忘记"></van-cell>
                 <van-cell title="校区地图" label="精确定位，高清地图，校园内不再迷路"></van-cell>
                 <van-cell title="身份证二维码" label="核酸检测时方便展示，不再需要打开小程序"></van-cell>
@@ -78,7 +78,7 @@
             <van-cell-group title="应用截图">
                 <van-swipe :autoplay="3000">
                     <van-swipe-item v-for="(image, index) in images" :key="index">
-                        <img v-lazy="image"/>
+                        <img width="100%" :src="image"/>
                     </van-swipe-item>
                 </van-swipe>
             </van-cell-group>
@@ -110,12 +110,6 @@
                 </div>
             </van-cell-group>
             <div style="padding-bottom: 50px"></div>
-            <!--            <el-image src="./imgs/img_syllabus.jpg"></el-image>-->
-            <!--            <el-image src="./imgs/img_todo.jpg"></el-image>-->
-            <!--            <el-image src="./imgs/img_misc.jpg"></el-image>-->
-            <!--            <el-image src="./imgs/img_apply_go_out.jpg"></el-image>-->
-            <!--            <el-image src="./imgs/img_qr_code.jpg"></el-image>-->
-            <!--            <el-image src="./imgs/img_grade.png"></el-image>-->
         </div>
     </div>
 </div>
@@ -130,11 +124,14 @@
         ua_mm: window.navigator.userAgent.toLowerCase().indexOf('micromessenger') >= 0,
         has_click: false,
         images: [
-          'https://img01.yzcdn.cn/vant/apple-1.jpg',
-          'https://img01.yzcdn.cn/vant/apple-2.jpg',
+          "./imgs/img_syllabus.jpg",
+          "./imgs/img_todo.jpg",
+          "./imgs/img_misc.jpg",
+          "./imgs/img_apply_go_out.jpg",
+          "./imgs/img_qr_code.jpg",
+          "./imgs/img_grade.png",
         ],
         apk_url: "https://mysdu-qd-public.oss-cn-qingdao.aliyuncs.com/apk/MySdu-latest.apk",
-
       }
     },
     methods: {
