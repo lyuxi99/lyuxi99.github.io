@@ -37,12 +37,9 @@
     </style>
 </head>
 <body style="background-color: #f7f8fa">
-<div id="app" style="padding: 10px">
+<div id="app" style="padding: 0 10px">
     <div>
         <img width="100%" src="./imgs/banner.png"/>
-        <!--        <van-divider-->
-        <!--                :style="{ color: '#1989fa', borderColor: '#1989fa', padding: '0 16px' }"-->
-        <!--        />-->
         <div>
             <center>
                 <img width="60%" style="max-width: 400px" src="./imgs/qr_share.png"/>
@@ -50,7 +47,7 @@
 
                 <div v-if="ua_qq || ua_mm" style="margin-top: 20px; color: red">
                     <button v-if="!has_click" style="text-decoration: none" @click="has_click=true"
-                            class="m-button">【立即下载】
+                            class="m-button">点这里立即下载
                     </button>
                     <div v-else>
                         <span v-if="ua_qq">您当前是在手机QQ，</span><span v-if="ua_mm">您当前是在微信，</span>为了正常下载，<br>请点击右上角“从浏览器中打开”<br><br><br>
@@ -68,11 +65,11 @@
                 <van-cell title="课程表" label="随时随地看课表，点击课程还可添加备注"></van-cell>
                 <van-cell title="待办事项" label="方便记录作业，不再忘记"></van-cell>
                 <van-cell title="校区地图" label="精确定位，高清地图，校园内不再迷路"></van-cell>
+                <van-cell title="成绩查询" label="一键查询成绩，心痛只在瞬间"></van-cell>
                 <van-cell title="身份证二维码" label="核酸检测时方便展示，不再需要打开小程序"></van-cell>
-                <van-cell title="查成绩" label="一键查询成绩，心痛只在瞬间"></van-cell>
                 <van-cell title="出入校园信息填报" label="一键打开出校申请"></van-cell>
                 <van-cell title="图书馆预约" label="一键打开座位预约"></van-cell>
-                <van-cell title="考试安排" label="<待开发>"></van-cell>
+                <van-cell title="考试安排" label="<因为教务目前暂无考试安排，故暂未开发>"></van-cell>
             </van-cell-group>
 
             <van-cell-group title="应用截图">
@@ -91,7 +88,7 @@
                         APP 还有同学在使用，很是感动，遂决定继续维护。
                     </p>
                     <p>
-                        这个是我 4 年前随便写的一个项目。这次重构了大部分代码，新项目代码会<a
+                        之前版本的 MySdu 是我 4 年前随便写的一个项目。这次重构了大部分代码，新项目代码会<a
                             href="https://github.com/lyuxi99/MySdu"
                             style="text-decoration: none; color: #06A7FF">在这里开源</a>。
                     </p>
