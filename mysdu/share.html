@@ -71,11 +71,13 @@
             </van-cell-group>
 
             <van-cell-group title="应用截图（共 8 张图片）">
-                <van-swipe :autoplay="2000">
-                    <van-swipe-item v-for="(image, index) in images" :key="index">
-                        <img width="100%" :src="image"/>
-                    </van-swipe-item>
-                </van-swipe>
+                <center >
+                    <van-swipe :autoplay="2000" style="max-width: 600px">
+                        <van-swipe-item v-for="(image, index) in images" :key="index">
+                            <img width="100%" :src="image"/>
+                        </van-swipe-item>
+                    </van-swipe>
+                </center>
             </van-cell-group>
 
             <van-cell-group title="来自开发者的一封信">
