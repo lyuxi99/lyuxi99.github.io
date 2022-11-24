@@ -34,11 +34,11 @@
 <body style="background-color: #f7f8fa">
 <div id="app" style="padding: 0 10px">
     <div>
-        <center>
+        <div style="text-align: center;">
             <img width="100%" style="max-width: 642px;" src="./imgs/banner.png"/>
-        </center>
+        </div>
         <div>
-            <center>
+            <div style="text-align: center;">
                 <img width="60%" style="max-width: 400px" src="./imgs/qr_share.png"/>
                 <div style="margin-bottom: 15px"><b>↑ 扫码下载</b></div>
 
@@ -56,7 +56,7 @@
                         <button class="m-button">点这里立即下载</button>
                     </a>
                 </div>
-            </center>
+            </div>
 
             <van-cell-group title="功能介绍（后面有 应用截图 和 来自开发者的一封信 哦）">
                 <van-cell title="课程表" label="随时随地看课表，点击课程还可添加备注"></van-cell>
@@ -71,13 +71,13 @@
             </van-cell-group>
 
             <van-cell-group title="应用截图（共 8 张图片）">
-                <center >
+                <div style="text-align: center;">
                     <van-swipe :autoplay="2000" style="max-width: 600px">
                         <van-swipe-item v-for="(image, index) in images" :key="index">
                             <img width="100%" :src="image"/>
                         </van-swipe-item>
                     </van-swipe>
-                </center>
+                </div>
             </van-cell-group>
 
             <van-cell-group title="来自开发者的一封信">
