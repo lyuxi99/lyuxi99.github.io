@@ -96,6 +96,19 @@
                         此次更新对 MySdu 全新改版，优化了界面 UI，增添了很多新功能。欢迎下载体验！
                     </p>
                     <p>
+                        最后，欢迎加入反馈群，告诉我你的想法，更方便地和开发者互动。你的观点对 MySdu 的维护很重要！
+                    </p>
+                    <center style="margin-top: 10px">
+                        反馈群号：<van-tag plain type="primary" size="large">296843720</van-tag><br>
+                    </center>
+
+                    <p>
+                        或者点击以下按钮加入反馈群：
+                    </p>
+                    <center>
+                        <van-button round type="info" @click="jump">点我加 Q 群</van-button>
+                    </center>
+                    <p>
                         谢谢你的支持！
                     </p>
                     <div style="text-align:right">
@@ -131,6 +144,11 @@
           "./imgs/img_empty_room.jpg",
         ],
         apk_url: "https://mysdu-qd-public.oss-cn-qingdao.aliyuncs.com/apk/MySdu-latest.apk",
+      }
+    },
+    methods: {
+      jump(){
+        window.open('https://jq.qq.com/?_wv=1027&k=5g3NURpH', '_blank')
       }
     },
   });
